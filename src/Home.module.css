@@ -36,10 +36,18 @@ a {
 }
 
 .ekpixel {
-    background-color: white;
-    height: 1rem;
+    background-color: #f48020;
+    height: 1.3rem;
     display: inline-block;
     width: 10px;
+    animation: blinker 1s step-end infinite;
+    z-index: 1;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
 }
 
 .navBar {

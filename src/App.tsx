@@ -4,7 +4,7 @@ import './App.css';
 import styles from "./Home.module.css";
 import Terminput from './Terminput';
 
-function getColored(s: string, colorg: string) {
+export function getColored(s: string, colorg: string) {
   const colorgiven = { color: colorg };
   return (<span style={colorgiven}>{s}</span>)
 }
@@ -18,7 +18,7 @@ function listitem(command: string, item: string, padness: number = 10) {
   )
 }
 
-function getHelp() {
+export function getHelp() {
   //{listitem("usermod [oldname] [newname]", "change your name in terminal")}
   //to be added
   return (

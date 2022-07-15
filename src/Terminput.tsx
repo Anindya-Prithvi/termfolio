@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { getColored } from './App';
 import styles from "./Home.module.css";
 
 const Terminput = () => {
@@ -8,7 +9,8 @@ const Terminput = () => {
         else if (evt.key === 'Enter') { console.log("not impl"); }
         else if (evt.nativeEvent.key.length === 1) { setWidth(evt.target.value.length + 1) };
     };
-    return (<div className={styles.terminalcontainer}>visitor14234@online:$ <input style={{ width: width + 'ch' }} className={styles.terminput} autoFocus onKeyDown={changeHandler} type='text' /><div className={styles.ekpixel}></div></div>)
+
+    return (<div className={styles.terminalcontainer}>{getColored("visitor14234@online:$ ", "#f48020")}<input style={{ width: width + 'ch' }} className={styles.terminput} autoFocus onKeyDown={changeHandler} type='text' /><div className={styles.ekpixel}></div></div>)
 }
 
 export default Terminput;
