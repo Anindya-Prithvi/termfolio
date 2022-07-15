@@ -1,8 +1,10 @@
 // import logo from './logo.svg';
+import { useEffect } from 'react';
 import './App.css';
 // import React, { useState } from "react";
 import styles from "./Home.module.css";
-import Terminput from './Terminput';
+import TermElements from './TermElements';
+import Terminput, { listenlog } from './Terminput';
 
 export function getColored(s: string, colorg: string) {
   const colorgiven = { color: colorg };
@@ -34,6 +36,14 @@ export function getHelp() {
 }
 
 export default function App() {
+  useEffect(() => {
+    window.addEventListener("keydown", listenlog);
+
+    return () => {
+      window.removeEventListener("keydown", listenlog);
+    }
+  }, [])
+
   return (
     <div className={styles.container}>
       <div className={styles.navBar}>
@@ -44,6 +54,7 @@ export default function App() {
         Mounting {getColored("/home/visitor", "#35bdb8")}
         {getHelp()}
         Have fun!
+        <TermElements />
         <Terminput />
       </div>
 
