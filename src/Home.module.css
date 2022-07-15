@@ -16,6 +16,17 @@ a {
     box-sizing: border-box;
 }
 
+.overlaybell {
+    z-index: 100;
+    background-color: #9e81c4;
+    max-width: 85%;
+    width: 85%;
+    height: 100vh;
+    position: absolute;
+    left: 15%;
+    opacity: 0%;
+}
+
 .container {
     min-height: 99vh;
     padding: 0 0.5rem;
@@ -27,6 +38,7 @@ a {
     font-family: "Fira Code";
     line-height: 1.6;
     white-space: pre;
+    position: relative;
 }
 
 .terminalcontainer {

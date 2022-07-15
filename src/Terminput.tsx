@@ -17,6 +17,16 @@ const Terminput = () => {
             console.log("not impl");
             console.log("Terminal bell, input too long");
             evt.preventDefault();
+            const bgelem = document.getElementById("overlaybell") as HTMLDivElement;
+            const actions = [
+                { opacity: '10%' }
+            ];
+
+            const timings = {
+                duration: 300,
+                iterations: 2,
+            }
+            bgelem.animate(actions, timings)
         }
         else if (evt.nativeEvent.key.length === 1) { setWidth(evt.target.value.length + 1) };
     };

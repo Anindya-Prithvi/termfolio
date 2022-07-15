@@ -39,7 +39,7 @@ export default function App() {
       <div className={styles.navBar}>
         Hi! I am Andy
       </div>
-
+      <div className={styles.overlaybell} id='overlaybell'></div>
       <div className={styles.terminal}>
         Mounting {getColored("/home/visitor", "#35bdb8")}
         {getHelp()}
