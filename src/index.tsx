@@ -9,12 +9,6 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <head>
-      <title>Portfolio</title>
-      <meta name="description" content="fun bun.sh project ig" />
-      <link rel="icon" href="/favicon.ico" />
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira Code" />
-    </head>
     <App />
   </React.StrictMode>
 );
