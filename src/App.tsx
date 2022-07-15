@@ -3,7 +3,8 @@ import { useEffect } from 'react';
 import './App.css';
 // import React, { useState } from "react";
 import styles from "./Home.module.css";
-import Terminput from './Terminput';
+import TermElements from './TermElements';
+import Terminput, { listenlog } from './Terminput';
 
 export function getColored(s: string, colorg: string) {
   const colorgiven = { color: colorg };
@@ -36,39 +37,6 @@ export function getHelp() {
 
 export default function App() {
   useEffect(() => {
-    function listenlog(e) {
-      // console.log(e);
-      const spanelem = document.getElementById("terminput");
-      if (spanelem != undefined) {
-        let currentcontent = spanelem.textContent;
-        if (e.key === 'Enter') {
-          spanelem.textContent = "";
-          console.log("remaining to implement");
-        } else if (e.key === 'Backspace') {
-          // do backspace lol what else
-          spanelem.textContent = currentcontent!.slice(0, -1);
-        } else if (e.key.length != 1) {
-          e.preventDefault();
-        } else if (e.key.length === 1 && currentcontent!.length < 30) {
-          spanelem.textContent = currentcontent + e.key;
-        }
-        else if (currentcontent!.length >= 30) {
-          console.log("not impl");
-          console.log("Terminal bell, input too long");
-          e.preventDefault();
-          const bgelem = document.getElementById("overlaybell") as HTMLDivElement;
-          const actions = [
-            { opacity: '10%' }
-          ];
-
-          const timings = {
-            duration: 300,
-            iterations: 2,
-          }
-          bgelem.animate(actions, timings)
-        }
-      }
-    };
     window.addEventListener("keydown", listenlog);
 
     return () => {
@@ -86,6 +54,7 @@ export default function App() {
         Mounting {getColored("/home/visitor", "#35bdb8")}
         {getHelp()}
         Have fun!
+        <TermElements />
         <Terminput />
       </div>
 
