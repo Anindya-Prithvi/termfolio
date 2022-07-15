@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 // import React, { useState } from "react";
 import styles from "./Home.module.css";
@@ -9,6 +9,11 @@ import Terminput, { listenlog } from './Terminput';
 export function getColored(s: string, colorg: string) {
   const colorgiven = { color: colorg };
   return (<span style={colorgiven}>{s}</span>)
+}
+
+export class GlobalVars {
+  public static tte = [<div>Mounting {getColored("/home/visitor", "#35bdb8")}</div>, <div>{getHelp()}</div>, <div>Have fun!!</div>];
+  public static setter: any = undefined;
 }
 
 function listitem(command: string, item: string, padness: number = 10) {
@@ -36,6 +41,7 @@ export function getHelp() {
 }
 
 export default function App() {
+
   useEffect(() => {
     window.addEventListener("keydown", listenlog);
 
@@ -51,10 +57,7 @@ export default function App() {
       </div>
       <div className={styles.overlaybell} id='overlaybell'></div>
       <div className={styles.terminal}>
-        Mounting {getColored("/home/visitor", "#35bdb8")}
-        {getHelp()}
-        Have fun!
-        <TermElements />
+        <TermElements elems={GlobalVars.tte} />
         <Terminput />
       </div>
 
