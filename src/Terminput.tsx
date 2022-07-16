@@ -39,6 +39,8 @@ function invokeParser(content: string) {
             curr.push(<div>{`Name set to ${thename}`}</div>);
             GlobalVars.visnamesetter(thename);
             GlobalVars.visitorname = thename;
+        } else {
+            curr.push(<div>Command not found. Try getting {getColored("help", "#f4b400")}</div>)
         }
         GlobalVars.outputsetter(curr);
     }
