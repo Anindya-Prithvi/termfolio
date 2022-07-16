@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { getColored, getHelp, GlobalVars } from './App';
+import { useState } from 'react'
+import { GlobalVars } from './App';
 
 const TermElements = ({ elems }) => {
     const [tste, setTste] = useState(elems);
-    GlobalVars.setter = setTste;
-    console.log(tste.map(item => item.props.children));
+    GlobalVars.outputsetter = setTste;
+    GlobalVars.tte = tste;
+    // console.log(tste.map(item => item.props.children));
 
     return (
         <div>
-            {tste.map(item => <div key={item.props.children}>{item}</div>)}
+            {tste.map(item => <div key={Math.random()}>{item}</div>)}
         </div>
     )
 }

@@ -3,7 +3,9 @@ import { getColored, GlobalVars } from './App';
 import styles from "./Home.module.css";
 
 const Terminput = () => {
-    return (<div className={styles.terminalcontainer}>{getColored("visitor14234@online:$ ", "#f48020")}<span className={styles.terminput} id='terminput'></span><div className={styles.ekpixel}></div></div>)
+    const [visname, setVisname] = useState(GlobalVars.visitorname)
+    GlobalVars.visnamesetter = setVisname;
+    return (<div className={styles.terminalcontainer}>{getColored(`${visname}@online:$ `, "#f48020")}<span className={styles.terminput} id='terminput'></span><div className={styles.ekpixel}></div></div>)
 }
 
 function termbell(e) {
@@ -20,6 +22,28 @@ function termbell(e) {
     bgelem.animate(actions, timings)
 }
 
+function gettermout(inp: string) {
+
+}
+
+function invokeParser(content: string) {
+    console.log(content);
+    if (content === "clear") {
+        GlobalVars.outputsetter([]);
+    } else {
+        // console.log(GlobalVars.tte);
+        var curr = GlobalVars.tte.slice();
+        curr.push(<div>{getColored(`${GlobalVars.visitorname}@online:$ `, "#f48020")}<span>{content}</span></div>)
+        if (content.match("rename .*")) {
+            let thename: string = content.substring(7);
+            curr.push(<div>{`Name set to ${thename}`}</div>);
+            GlobalVars.visnamesetter(thename);
+            GlobalVars.visitorname = thename;
+        }
+        GlobalVars.outputsetter(curr);
+    }
+}
+
 export function listenlog(e) {
     // console.log(e);
     const spanelem = document.getElementById("terminput");
@@ -27,8 +51,7 @@ export function listenlog(e) {
         let currentcontent = spanelem.textContent;
         if (e.key === 'Enter') {
             spanelem.textContent = "";
-            GlobalVars.setter([]);
-            console.log("remaining to implement");
+            invokeParser(currentcontent!);
         } else if (e.key === 'Backspace') {
             // do backspace lol what else
             if (spanelem.textContent!.length == 0) termbell(e);

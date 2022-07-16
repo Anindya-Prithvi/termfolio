@@ -13,10 +13,12 @@ export function getColored(s: string, colorg: string) {
 
 export class GlobalVars {
   public static tte = [<div>Mounting {getColored("/home/visitor", "#35bdb8")}</div>, <div>{getHelp()}</div>, <div>Have fun!!</div>];
-  public static setter: any = undefined;
+  public static outputsetter: any = undefined;
+  public static visitorname: string = "hackerman-visitor";
+  public static visnamesetter: any = undefined;
 }
 
-function listitem(command: string, item: string, padness: number = 10) {
+function listitem(command: string, item: string, padness: number = 14) {
   const spaced = " ";
   return (
     <div>
@@ -36,6 +38,8 @@ export function getHelp() {
       {listitem("help", "View this list again")}
       {listitem("feedback", "Send feedback")}
       {listitem("echo [..]", "You know this... Right?")}
+      {listitem("rename [..]", "Changes the default username")}
+      {listitem("clear", "Clears the screen")}
     </div>
   )
 }
