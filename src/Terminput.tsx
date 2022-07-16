@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { getColored, GlobalVars } from './App';
+import { getColored, getHelp, GlobalVars } from './App';
 import styles from "./Home.module.css";
+import { j_ob } from './thejson';
 
 const Terminput = () => {
     const [visname, setVisname] = useState(GlobalVars.visitorname)
@@ -35,13 +36,29 @@ function invokeParser(content: string) {
             curr.push(<div>{`Name set to ${thename}`}</div>);
             GlobalVars.visnamesetter(thename);
             GlobalVars.visitorname = thename;
-        } else {
+        } else if (content === "ls") {
+            j_ob.ls.forEach(element => {
+                const [e1, e2] = element.split(":")
+                curr.push(<div>{getColored(e1, "#829210")} {getColored(e2, "#11f2f0")}</div>)
+            });
+        } else if (content === "help") {
+            curr.push(getHelp())
+        } else if (content.match("echo .*")) {
+            curr.push(<div>{content.slice(5)}</div>)
+        } else if (content.match("cd [a-zA-Z-_]*")) {
+            curr.push(<div>Navigating to <a className={styles.hrefcol} href={`https://www.github.com/Anindya-Prithvi/${content.slice(3)}`}>{content.slice(3)}</a></div>);
+            window.open(`https://www.github.com/Anindya-Prithvi/${content.slice(3)}`);
+        } else if (content.match("edit [a-zA-Z-_]*")) {
+            curr.push(<div>Navigating to <a className={styles.hrefcol} href={`https://github.dev/Anindya-Prithvi/${content.slice(5)}`}>{content.slice(5)}</a></div>);
+            window.open(`https://github.dev/Anindya-Prithvi/${content.slice(5)}`);
+        }
+        else {
             curr.push(<div>Command not found. Try getting {getColored("help", "#f4b400")}</div>)
         }
         GlobalVars.outputsetter(curr);
     }
     var element = document.getElementById("termscroller");
-    element!.scrollTop = element!.clientHeight;
+    element!.scrollTop = element!.scrollHeight + 1000;
 }
 
 export function listenlog(e) {

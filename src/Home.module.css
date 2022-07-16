@@ -30,9 +30,10 @@ a {
 
 .creditroll {
     background-color: #35bdb8;
-    max-height: 5vh;
+    max-height: 4vh;
     text-align: right;
     font-family: 'Fira Code';
+    padding-right: 10px;
 }
 
 .container {
@@ -42,11 +43,10 @@ a {
     display: flex;
     flex-direction: row;
     align-items: left;
-    height: 100vh;
     color: #ffffff;
     font-family: "Fira Code";
     line-height: 1.6;
-    white-space: pre;
+    white-space: pre-wrap;
     position: relative;
 }
 
@@ -92,6 +92,12 @@ a {
 
 .terminal::-webkit-scrollbar {
     display: none;
+}
+
+.hrefcol {
+    font-style: italic;
+    text-decoration-line: underline;
+    color: #62a6f3;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */

@@ -34,11 +34,12 @@ export function getHelp() {
     <div>
       Here are a few things you can try out!
       {listitem("ls", "View a list of my projects")}
-      {listitem("cd", "Open the project in web text editor (github.dev)")}
+      {listitem("cd [..]", "Open the project github (github.com/Anindya-Prithvi/)")}
       {listitem("help", "View this list again")}
       {listitem("feedback", "Send feedback")}
       {listitem("echo [..]", "You know this... Right?")}
       {listitem("rename [..]", "Changes the default username")}
+      {listitem("edit [..]", "Open the project in web text editor (github.com/Anindya-Prithvi/)")}
       {listitem("clear", "Clears the screen")}
     </div>
   )
@@ -58,7 +59,14 @@ export default function App() {
     <div>
       <div className={styles.container}>
         <div className={styles.navBar}>
-          Hi! I am Andy
+          Hey! I am Anindya.
+          <br /><br />
+          A 3<sup>rd</sup> year student from the CSE department at IIITD.
+          <br /><br />
+          Currently working on a research project about VPN detection and fingerprinting.
+          <br /><br />
+          Recently got into ricing editors and OS (also see my repository nvim-configs).
+          <br /><br />
         </div>
         <div className={styles.overlaybell} id='overlaybell'></div>
         <div className={styles.tconpadding}>
