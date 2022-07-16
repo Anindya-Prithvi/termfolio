@@ -51,6 +51,9 @@ function invokeParser(content: string) {
         } else if (content.match("edit [a-zA-Z-_]*")) {
             curr.push(<div>Navigating to <a className={styles.hrefcol} href={`https://github.dev/Anindya-Prithvi/${content.slice(5)}`}>{content.slice(5)}</a></div>);
             window.open(`https://github.dev/Anindya-Prithvi/${content.slice(5)}`);
+        } else if (content === "feedback"){
+            window.open('mailto:anindya20024@iiitd.ac.in');
+            curr.push(<div>Please write your feedback in a mailto anindya20024@iiitd.ac.in</div>);
         }
         else {
             curr.push(<div>Command not found. Try getting {getColored("help", "#f4b400")}</div>)
