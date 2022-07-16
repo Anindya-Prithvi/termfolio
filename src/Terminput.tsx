@@ -22,10 +22,6 @@ function termbell(e) {
     bgelem.animate(actions, timings)
 }
 
-function gettermout(inp: string) {
-
-}
-
 function invokeParser(content: string) {
     console.log(content);
     if (content === "clear") {
@@ -44,6 +40,8 @@ function invokeParser(content: string) {
         }
         GlobalVars.outputsetter(curr);
     }
+    var element = document.getElementById("termscroller");
+    element!.scrollTop = element!.clientHeight;
 }
 
 export function listenlog(e) {
@@ -71,15 +69,3 @@ export function listenlog(e) {
 
 
 export default Terminput;
-
-// const printShell = () => {
-//     const [width, setWidth] = useState(0);
-
-//     const changeHandler = evt => {
-//         if (evt.key === 'Backspace') { setWidth(evt.target.value.length - 4 + 5) }
-//         else if (evt.key === 'Enter') { console.log("not impl"); }
-//         else { setWidth(evt.target.value.length + 5) };
-//     };
-
-//     return (<div>visitor14234@online:$ <input style={{ width: width + 'ch' }} className={styles.terminput} autoFocus onKeyDown={changeHandler} type='text' /></div>)
-// }

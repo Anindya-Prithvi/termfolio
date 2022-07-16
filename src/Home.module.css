@@ -3,6 +3,7 @@ body {
     padding: 0;
     margin: 0;
     background: #282c34;
+    opacity: 95%;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -17,7 +18,7 @@ a {
 }
 
 .overlaybell {
-    z-index: 100;
+    z-index: -1;
     background-color: #9e81c4;
     max-width: 85%;
     width: 85%;
@@ -27,8 +28,16 @@ a {
     opacity: 0%;
 }
 
+.creditroll {
+    background-color: #35bdb8;
+    max-height: 5vh;
+    text-align: right;
+    font-family: 'Fira Code';
+}
+
 .container {
-    min-height: 99vh;
+    overflow: hidden;
+    max-height: 96vh;
     padding: 0 0.5rem;
     display: flex;
     flex-direction: row;
@@ -71,8 +80,26 @@ a {
     width: 15%;
 }
 
-.terminal {
+.tconpadding {
     padding: 10px 10px 10px 10px;
+}
+
+.terminal {
+    overflow-y: scroll;
+    height: 100vh;
+    padding-bottom: 100px;
+}
+
+.terminal::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.terminal {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .terminalblue {

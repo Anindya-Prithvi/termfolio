@@ -55,16 +55,22 @@ export default function App() {
   }, [])
 
   return (
-    <div className={styles.container}>
-      <div className={styles.navBar}>
-        Hi! I am Andy
+    <div>
+      <div className={styles.container}>
+        <div className={styles.navBar}>
+          Hi! I am Andy
+        </div>
+        <div className={styles.overlaybell} id='overlaybell'></div>
+        <div className={styles.tconpadding}>
+          <div className={styles.terminal} id='termscroller'>
+            <TermElements elems={GlobalVars.tte} />
+            <Terminput />
+          </div>
+        </div>
       </div>
-      <div className={styles.overlaybell} id='overlaybell'></div>
-      <div className={styles.terminal}>
-        <TermElements elems={GlobalVars.tte} />
-        <Terminput />
+      <div className={styles.creditroll}>
+        Made by: Anindya Prithvi
       </div>
-
     </div>
   );
 }
