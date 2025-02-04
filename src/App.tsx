@@ -61,7 +61,7 @@ export default function App() {
         <div className={styles.navBar}>
           Hey! I am Anindya.
           <br /><br />
-          A 4<sup>th</sup> year student from the CSE department at IIITD. I like Systems, Cryptography and Generative AI. Just finished my summer internship at Microsoft. AMA!
+          I graduated from IIITD in 2024. I currently work as a SWE at Microsoft. I like Systems, Cryptography and Maths. Just finished my summer internship at Microsoft. AMA!
           <br /><br />
         </div>
         <div className={styles.overlaybell} id='overlaybell'></div>
