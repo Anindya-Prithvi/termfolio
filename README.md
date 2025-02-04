@@ -8,3 +8,7 @@ Replace my name with yours (everywhere except credits lol). Update `thejson.tsx`
 
 ## How to flex:
 Send it to CLI haters ✔️
+
+## Changelog
+### (v1.0.1) Enabled visitor metrics
+- Each page visit will now be counted
