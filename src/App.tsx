@@ -63,7 +63,7 @@ export default function App() {
           <br /><br />
           I graduated from IIITD in 2024. I have interned and currently working as a SWE at Microsoft. I like Systems, Cryptography and Maths. AMA (use the feedback command)!
           <p></p>
-          Here's my <a href="./aprithvi.html" style="color: #35bdb8;" target="_blank">Resume</a>.
+          Here's my <a href="./aprithvi.html" style={{ color: '#35bdb8' }} target="_blank">Resume</a>.
           <br /><br />
         </div>
         <div className={styles.overlaybell} id='overlaybell'></div>
